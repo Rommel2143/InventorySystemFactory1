@@ -27,7 +27,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\ptif1-ds\shared\IT\system\inventorysystem\</UpdateUrl>
     <PublisherName>RommelMagnaye</PublisherName>
-    <ApplicationRevision>14</ApplicationRevision>
+    <ApplicationRevision>16</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -67,13 +67,13 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>TRC.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\TRC.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>BDB07A63AFB598FD87E9110E4C3A8DF1759C0ACE</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>138BF7B73D7269A951C3ABC20E7B08A69B3BAC71</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>InventorySystem_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>InventorySystem_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -89,7 +89,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
-      <HintPath>..\packages\BouncyCastle.Cryptography.2.2.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -175,19 +175,25 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Inventory_Mainframe.Designer.vb">
+    <Compile Include="main\Inventory_Mainframe.Designer.vb">
       <DependentUpon>Inventory_Mainframe.vb</DependentUpon>
     </Compile>
-    <Compile Include="Inventory_Mainframe.vb">
+    <Compile Include="main\Inventory_Mainframe.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.vb">
+    <Compile Include="main\Login.Designer.vb">
       <DependentUpon>Login.vb</DependentUpon>
     </Compile>
-    <Compile Include="Login.vb">
+    <Compile Include="main\Login.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Module1.vb" />
+    <Compile Include="main\Module1.vb" />
+    <Compile Include="Manage\Add_item.designer.vb">
+      <DependentUpon>Add_item.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Add_item.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Monitoring\stock_monitoring.Designer.vb">
       <DependentUpon>stock_monitoring.vb</DependentUpon>
     </Compile>
@@ -216,10 +222,10 @@
     <Compile Include="Monitoring\QR_checker.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Register_PC.Designer.vb">
+    <Compile Include="main\Register_PC.Designer.vb">
       <DependentUpon>Register_PC.vb</DependentUpon>
     </Compile>
-    <Compile Include="Register_PC.vb">
+    <Compile Include="main\Register_PC.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Scan\CrystalReport1.vb">
@@ -239,10 +245,16 @@
     <Compile Include="Scan\print_report.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Scan\sub_FRAME.Designer.vb">
+    <Compile Include="main\sub_FRAME.Designer.vb">
       <DependentUpon>sub_FRAME.vb</DependentUpon>
     </Compile>
-    <Compile Include="Scan\sub_FRAME.vb">
+    <Compile Include="main\sub_FRAME.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Scan\results_OUT.designer.vb">
+      <DependentUpon>results_OUT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Scan\results_OUT.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Scan\Scan_In.Designer.vb">
@@ -263,12 +275,6 @@
     <Compile Include="Scan\results_IN.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Scan\results_OUT.Designer.vb">
-      <DependentUpon>results_OUT.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Scan\results_OUT.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Scan\Scan_return.Designer.vb">
       <DependentUpon>Scan_return.vb</DependentUpon>
     </Compile>
@@ -283,11 +289,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Inventory_Mainframe.resx">
+    <EmbeddedResource Include="main\Inventory_Mainframe.resx">
       <DependentUpon>Inventory_Mainframe.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="main\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage\Add_item.resx">
+      <DependentUpon>Add_item.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Monitoring\stock_monitoring.resx">
       <DependentUpon>stock_monitoring.vb</DependentUpon>
@@ -301,7 +310,7 @@
     <EmbeddedResource Include="Monitoring\QR_checker.resx">
       <DependentUpon>QR_checker.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Register_PC.resx">
+    <EmbeddedResource Include="main\Register_PC.resx">
       <DependentUpon>Register_PC.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Scan\CrystalReport1.rpt">
@@ -311,10 +320,13 @@
     <EmbeddedResource Include="Scan\print_report.resx">
       <DependentUpon>print_report.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Scan\results_OUT.resx">
+      <DependentUpon>results_OUT.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Scan\Scan_return.resx">
       <DependentUpon>Scan_return.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Scan\sub_FRAME.resx">
+    <EmbeddedResource Include="main\sub_FRAME.resx">
       <DependentUpon>sub_FRAME.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Scan\Scan_In.resx">
@@ -326,14 +338,12 @@
     <EmbeddedResource Include="Scan\results_IN.resx">
       <DependentUpon>results_IN.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Scan\results_OUT.resx">
-      <DependentUpon>results_OUT.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Scan\suggest_improvent.resx">
       <DependentUpon>suggest_improvent.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="InventorySystem_1_TemporaryKey.pfx" />
     <None Include="InventorySystem_TemporaryKey.pfx" />
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
@@ -369,7 +379,7 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="TRC.ico" />
+    <Content Include="Resources\TRC.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

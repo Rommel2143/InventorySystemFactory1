@@ -7,28 +7,56 @@ Public Class results_IN
     End Sub
 
 
-    Private Sub dtpicker_ValueChanged(sender As Object, e As EventArgs) Handles dtpicker.ValueChanged
+
+
+    Private Sub cmbbatchout_SelectedIndexChanged(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub datagrid1_CellContextMenuStripChanged(sender As Object, e As DataGridViewCellEventArgs) Handles datagrid1.CellContextMenuStripChanged
+
+    End Sub
+
+    Private Sub datagrid1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles datagrid1.CellClick
         Try
+            With datagrid1
+                itempartcode = .SelectedCells(0).Value.ToString()
+            End With
+
             con.Close()
             con.Open()
-            Dim cmdselect As New MySqlCommand("Select distinct `batch` FROM `tblscan`
-                                                WHERE `datein`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "' and `located`='" & PClocation & "' and `userin`='" & idno & "'", con)
-            dr = cmdselect.ExecuteReader
-            cmbbatchin.Items.Clear()
-            While (dr.Read())
-                cmbbatchin.Items.Add(dr.GetString("batch"))
-            End While
+            Dim cmdrefreshgrid As New MySqlCommand("SELECT ts.`qrcode`,ts.`partcode`,ts.`lotnumber`, ts.`remarks`, ts.`qty`
+                                                    FROM `tblscan` ts
+                                                    LEFT JOIN scanoperator_is so ON ts.userin = so.IDno
+                                                    WHERE       `datein`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "' 
+                                                    and `partcode`='" & itempartcode & "'
+                                                            and `located`='" & PClocation & "' 
+                                                            and `Fullname`='" & cmbuser.Text & "'  
+                                                            and `batch`='" & cmbbatchin.Text & "' ", con)
+
+            Dim da As New MySqlDataAdapter(cmdrefreshgrid)
+            Dim dt As New DataTable
+            da.Fill(dt)
+            datagrid2.DataSource = dt
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+
     End Sub
 
-    Private Sub cmbbatchout_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbatchin.SelectedIndexChanged
+    Private Sub cmbbatchout_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles cmbbatchin.SelectedIndexChanged
         Try
+
+
             con.Close()
             con.Open()
-            Dim cmdrefreshgrid As New MySqlCommand("SELECT `qrcode`,`partcode`,`lotnumber`, `remarks`, `qty` FROM `tblscan`
-                                                     WHERE `datein`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "' and `located`='" & PClocation & "' and `userin`='" & idno & "'  and `batch`='" & cmbbatchin.Text & "' ", con)
+            Dim cmdrefreshgrid As New MySqlCommand("SELECT ts.`qrcode`,ts.`partcode`,ts.`lotnumber`, ts.`remarks`, ts.`qty`
+                                                    FROM `tblscan` ts
+                                                    LEFT JOIN scanoperator_is so ON ts.userin = so.IDno
+                                                    WHERE       `datein`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "' 
+                                                            and `located`='" & PClocation & "' 
+                                                            and `Fullname`='" & cmbuser.Text & "'  
+                                                            and `batch`='" & cmbbatchin.Text & "' ", con)
 
             Dim da As New MySqlDataAdapter(cmdrefreshgrid)
             Dim dt As New DataTable
@@ -38,8 +66,13 @@ Public Class results_IN
 
             con.Close()
             con.Open()
-            Dim cmdrefreshgrid2 As New MySqlCommand("SELECT `partcode` AS Partcode, SUM(`qty`) AS TOTAL FROM `tblscan`
-                                                  WHERE `datein`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "' and `located`='" & PClocation & "' and `userin`='" & idno & "'  and `batch`='" & cmbbatchin.Text & "'               
+            Dim cmdrefreshgrid2 As New MySqlCommand("SELECT ts.`partcode` AS Partcode, SUM(`qty`) AS TOTAL 
+                                                  FROM `tblscan` ts
+                                                    LEFT JOIN scanoperator_is so ON ts.userin = so.IDno
+                                                    WHERE       `datein`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "' 
+                                                            and `located`='" & PClocation & "' 
+                                                            and `Fullname`='" & cmbuser.Text & "'  
+                                                            and `batch`='" & cmbbatchin.Text & "'          
                                                   GROUP BY partcode", con)
 
             Dim da2 As New MySqlDataAdapter(cmdrefreshgrid2)
@@ -54,27 +87,42 @@ Public Class results_IN
         End Try
     End Sub
 
-    Private Sub datagrid1_CellContextMenuStripChanged(sender As Object, e As DataGridViewCellEventArgs) Handles datagrid1.CellContextMenuStripChanged
-
-    End Sub
-
-    Private Sub datagrid1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles datagrid1.CellClick
+    Private Sub dtpicker_ValueChanged_1(sender As Object, e As EventArgs) Handles dtpicker.ValueChanged
         Try
-            With datagrid1
-                itempartcode = .SelectedCells(0).Value.ToString()
-            End With
             con.Close()
             con.Open()
-            Dim cmdrefreshgrid As New MySqlCommand("SELECT `qrcode`,`partcode`,`lotnumber`, `remarks`, `qty` FROM `tblscan`
-                                                     WHERE `partcode`='" & itempartcode & "' and `datein`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "' and `located`='" & PClocation & "' and `userin`='" & idno & "' and `batch`='" & cmbbatchin.Text & "' ", con)
-
-            Dim da As New MySqlDataAdapter(cmdrefreshgrid)
-            Dim dt As New DataTable
-            da.Fill(dt)
-            datagrid2.DataSource = dt
+            Dim cmdselect As New MySqlCommand("Select distinct `fullname` FROM `tblscan`
+                                                INNER JOIN `scanoperator_is` ON `userin` = `IDno`
+                                                WHERE located='" & PClocation & "' and `datein`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "'", con)
+            dr = cmdselect.ExecuteReader
+            cmbuser.Items.Clear()
+            While (dr.Read())
+                cmbuser.Items.Add(dr.GetString("fullname"))
+            End While
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+    End Sub
+
+    Private Sub cmbuser_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbuser.SelectedIndexChanged
+        Try
+            con.Close()
+            con.Open()
+            Dim cmdselect As New MySqlCommand("Select distinct ts.`batch` FROM `tblscan` ts
+                                              Left Join scanoperator_is tsoout ON ts.userin = tsoout.IDno
+                                               
+                                                WHERE `located`='" & PClocation & "' and `datein`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "' and `fullname`='" & cmbuser.Text & "'", con)
+            dr = cmdselect.ExecuteReader
+            cmbbatchin.Items.Clear()
+            While (dr.Read())
+                cmbbatchin.Items.Add(dr.GetString("batch"))
+            End While
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub datagrid1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles datagrid1.CellContentClick
 
     End Sub
 End Class

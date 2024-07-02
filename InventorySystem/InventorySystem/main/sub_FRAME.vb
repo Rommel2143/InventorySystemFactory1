@@ -69,4 +69,8 @@ Public Class sub_FRAME
     Private Sub StockMonitoringToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StockMonitoringToolStripMenuItem.Click
         display_formscan(stock_monitoring)
     End Sub
+
+    Private Sub ManageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ManageToolStripMenuItem.Click
+        display_formscan(Add_item)
+    End Sub
 End Class

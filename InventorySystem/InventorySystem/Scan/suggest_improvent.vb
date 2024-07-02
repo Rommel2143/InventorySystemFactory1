@@ -12,7 +12,7 @@ Public Class suggest_improvent
 
             con.Close()
             con.Open()
-            Dim cmdinsert As New MySqlCommand("INSERT INTO `tblimprovement`(`user`, `improvement`, `system`) VALUES ('" & fname & "','" & txtsuggest.Text & "','IS')", con)
+            Dim cmdinsert As New MySqlCommand("INSERT INTO `tblimprovement`(`reported`, `improvement`, `system`, `PClocation`) VALUES ('" & fname & "','" & txtsuggest.Text & "','IS','" & PClocation & "')", con)
             dr = cmdinsert.ExecuteReader
 
 
