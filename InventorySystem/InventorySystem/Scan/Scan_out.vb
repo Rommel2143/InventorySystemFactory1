@@ -50,7 +50,7 @@ Public Class Scan_out
                 'CON 2: DUPLICATION
                 con.Close()
                 con.Open()
-                Dim cmdselect As New MySqlCommand("SELECT `qrcode`,`status`,`located`,`dateout` FROM `tblscan` WHERE `qrcode`='" & qrcode & "'", con)
+                Dim cmdselect As New MySqlCommand("SELECT `qrcode`,`status`,`located`,`dateout` FROM `tblscan` WHERE `qrcode`='" & qrcode & "' LIMIT 1", con)
                 dr = cmdselect.ExecuteReader
                 If dr.Read = True Then
                     status = dr.GetString("status")
@@ -77,7 +77,7 @@ Public Class Scan_out
                         Case "OUT"
                             con.Close()
                             con.Open()
-                            Dim cmdselectdate As New MySqlCommand("SELECT `dateout` FROM `tblscan` WHERE `qrcode`='" & qrcode & "'", con)
+                            Dim cmdselectdate As New MySqlCommand("SELECT `dateout` FROM `tblscan` WHERE `qrcode`='" & qrcode & "' LIMIT 1", con)
                             dr = cmdselectdate.ExecuteReader
                             If dr.Read = True Then
 
@@ -148,7 +148,7 @@ Public Class Scan_out
             Else
 
                 viewdata("Select `batch`, `userin`, `datein` FROM `tblscan`
-                         WHERE `datein`='" & datedb & "' and `userout`='" & idno & "' and `batchout`= '" & batchcode.Text & "' and `located`='" & PClocation & "'")
+                         WHERE `datein`='" & datedb & "' and `located`='" & PClocation & "' and `userout`='" & idno & "' and `batchout`= '" & batchcode.Text & "' LIMIT 1")
                 If dr.Read = True Then
                     Label4.Visible = True
                     Label7.Visible = True
@@ -335,5 +335,19 @@ Public Class Scan_out
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
         results_OUT.Show()
         results_OUT.BringToFront()
+    End Sub
+
+    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
+
+    End Sub
+
+    Private Sub Label7_Click_1(sender As Object, e As EventArgs) Handles Label7.Click
+
+        txtqr.Enabled = True
+        Label4.Visible = False
+        Label7.Visible = False
+
+        refreshgrid()
+        refreshgrid2()
     End Sub
 End Class

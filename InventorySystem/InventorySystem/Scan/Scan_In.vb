@@ -49,7 +49,7 @@ Public Class Scan_In
                 'CON 2 : DUPLICATE QR or GET location
                 con.Close()
                 con.Open()
-                Dim cmdselect As New MySqlCommand("SELECT `qrcode`,`status`,`located`,`datein` FROM `tblscan` WHERE `qrcode`='" & qrcode & "'", con)
+                Dim cmdselect As New MySqlCommand("SELECT `qrcode`,`status`,`located`,`datein` FROM `tblscan` WHERE `qrcode`='" & qrcode & "' LIMIT 1", con)
                 dr = cmdselect.ExecuteReader
                 If dr.Read = True Then
                     status = dr.GetString("status")
@@ -164,7 +164,7 @@ Public Class Scan_In
 
                     con.Close()
                     con.Open()
-                    Dim cmdpartcode As New MySqlCommand("SELECT `partcode` FROM `tblmaster` WHERE `partcode`='" & partcode & "'", con)
+                    Dim cmdpartcode As New MySqlCommand("SELECT `partcode` FROM `tblmaster` WHERE `partcode`='" & partcode & "' LIMIT 1", con)
                     dr = cmdpartcode.ExecuteReader
                     If dr.Read = True Then
                         'SAVING
@@ -203,7 +203,7 @@ Public Class Scan_In
             Else
 
                 viewdata("SELECT `batch`, `userin`, `datein` FROM `tblscan`
-                         WHERE `datein`='" & datedb & "' and `userin`='" & idno & "' and `batch`= '" & batchcode.Text & "' and `located`='" & PClocation & "'")
+                         WHERE `datein`='" & datedb & "' and `userin`='" & idno & "' and `batch`= '" & batchcode.Text & "' and `located`='" & PClocation & "' LIMIT 1")
                 If dr.Read = True Then
                     Label4.Visible = True
                     Label7.Visible = True
