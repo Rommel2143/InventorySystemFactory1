@@ -1,15 +1,16 @@
-﻿Imports System
-Public Class sub_FRAME
+﻿
+Imports System
+Public Class u1_4_subframe
 
     Private Sub Scan_Frame_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         userstrip.Text = fname
     End Sub
 
     Private Sub PARTSToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PARTSToolStripMenuItem.Click
-        display_formscan(Scan_In)
+        display_formscan(u14_scan_IN)
     End Sub
     Private Sub FGToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FGToolStripMenuItem.Click
-        display_formscan(Scan_out)
+        display_formscan(u14_scan_OUT)
     End Sub
     Private Sub display_formscan(form As Form)
         With form
@@ -46,7 +47,7 @@ Public Class sub_FRAME
     End Sub
 
     Private Sub DeviceInfoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeviceInfoToolStripMenuItem.Click
-        MessageBox.Show("Device loc:" & PClocation & "   /  Mac:" & PCmac & "   /  Device:" & PCname & "", "This Device is Registered", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        MessageBox.Show("Device location:" & PClocation & "   /  Mac:" & PCmac & "   /  Device:" & PCname & "", "This Device is Registered", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     Private Sub SuggestToImproveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SuggestToImproveToolStripMenuItem.Click

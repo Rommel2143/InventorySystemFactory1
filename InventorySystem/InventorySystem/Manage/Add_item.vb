@@ -11,12 +11,12 @@ Public Class Add_item
             Else
                 con.Close()
                 con.Open()
-                Dim cmd As New MySqlCommand("SELECT `partcode` FROM `tblmaster` WHERE partcode = '" & P_partcode.Text & "' ", con)
+                Dim cmd As New MySqlCommand("SELECT `partcode` FROM `inventory_fg_masterlist` WHERE partcode = '" & P_partcode.Text & "' ", con)
                 dr = cmd.ExecuteReader
                 If dr.Read = False Then
                     con.Close()
                     con.Open()
-                    Dim cmdinsert As New MySqlCommand(" INSERT INTO `tblmaster`
+                    Dim cmdinsert As New MySqlCommand(" INSERT INTO `inventory_fg_masterlist`
 (`partname`, `partcode`, `stockf1`, `stocku6`,`wipstock`,`section`) 
 VALUES ('" & P_Partname.Text & "','" & P_partcode.Text & "','0','0','0','" & P_section.Text & "')", con)
                     cmdinsert.ExecuteNonQuery()

@@ -26,9 +26,9 @@ ts.userout,
     tsoout.Fullname,
     tm.partname AS PartName
 FROM
-        tblscan ts
+        inventory_fg_scan ts
     Left Join scanoperator_is tsoout ON ts.userout = tsoout.IDno
-    Left Join tblmaster tm ON ts.partcode = tm.partcode
+    Left Join inventory_fg_masterlist tm ON ts.partcode = tm.partcode
 WHERE
         ts.dateout = '" & dtpicker.Value.ToString("yyyy-MM-dd") & "' and tsoout.Fullname = '" & cmbuser.Text & "' and ts.batchout='" & cmbbatchout.Text & "'
 ORDER BY
@@ -43,7 +43,7 @@ ORDER BY
         Try
             con.Close()
             con.Open()
-            Dim cmdselect As New MySqlCommand("Select distinct `fullname` FROM `tblscan`
+            Dim cmdselect As New MySqlCommand("Select distinct `fullname` FROM `inventory_fg_scan`
                                                 INNER JOIN `scanoperator_is` ON `userout` = `IDno`
                                                 WHERE `dateout`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "'", con)
             dr = cmdselect.ExecuteReader
@@ -60,7 +60,7 @@ ORDER BY
         Try
             con.Close()
             con.Open()
-            Dim cmdselect As New MySqlCommand("Select distinct ts.`batchout` FROM `tblscan` ts
+            Dim cmdselect As New MySqlCommand("Select distinct ts.`batchout` FROM `inventory_fg_scan` ts
                                               Left Join scanoperator_is tsoout ON ts.userout = tsoout.IDno
                                                
                                                 WHERE `dateout`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "' and `fullname`='" & cmbuser.Text & "'", con)
@@ -78,7 +78,7 @@ ORDER BY
         Dim myrpt As New CrystalReport1
         dt.Clear()
         viewdata()
-        myrpt.Database.Tables("tblscan").SetDataSource(dt)
+        myrpt.Database.Tables("inventory_fg_scan").SetDataSource(dt)
         CrystalReportViewer1.ReportSource = Nothing
         CrystalReportViewer1.ReportSource = myrpt
     End Sub

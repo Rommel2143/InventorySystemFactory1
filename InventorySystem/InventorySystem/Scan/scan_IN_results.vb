@@ -1,21 +1,12 @@
-﻿Imports MySql.Data.MySqlClient
-Public Class results_IN
+﻿
+Imports MySql.Data.MySqlClient
+Public Class scan_IN_results
     Dim itempartcode As String
 
     Private Sub scan_results_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        dtpicker.Value = Date.Now.ToString("yyyy-MM-dd")
+        dtpicker.Value = Date.Now
     End Sub
 
-
-
-
-    Private Sub cmbbatchout_SelectedIndexChanged(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub datagrid1_CellContextMenuStripChanged(sender As Object, e As DataGridViewCellEventArgs) Handles datagrid1.CellContextMenuStripChanged
-
-    End Sub
 
     Private Sub datagrid1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles datagrid1.CellClick
         Try
@@ -25,8 +16,8 @@ Public Class results_IN
 
             con.Close()
             con.Open()
-            Dim cmdrefreshgrid As New MySqlCommand("SELECT ts.`qrcode`,ts.`partcode`,ts.`lotnumber`, ts.`remarks`, ts.`qty`
-                                                    FROM `tblscan` ts
+            Dim cmdrefreshgrid As New MySqlCommand("SELECT ts.`lotnumber`, ts.`remarks`, ts.`qty`
+                                                    FROM `inventory_fg_scan` ts
                                                     LEFT JOIN scanoperator_is so ON ts.userin = so.IDno
                                                     WHERE       `datein`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "' 
                                                     and `partcode`='" & itempartcode & "'
@@ -50,8 +41,8 @@ Public Class results_IN
 
             con.Close()
             con.Open()
-            Dim cmdrefreshgrid As New MySqlCommand("SELECT ts.`qrcode`,ts.`partcode`,ts.`lotnumber`, ts.`remarks`, ts.`qty`
-                                                    FROM `tblscan` ts
+            Dim cmdrefreshgrid As New MySqlCommand("SELECT ts.`lotnumber`, ts.`remarks`, ts.`qty`
+                                                    FROM `inventory_fg_scan` ts
                                                     LEFT JOIN scanoperator_is so ON ts.userin = so.IDno
                                                     WHERE       `datein`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "' 
                                                             and `located`='" & PClocation & "' 
@@ -66,9 +57,10 @@ Public Class results_IN
 
             con.Close()
             con.Open()
-            Dim cmdrefreshgrid2 As New MySqlCommand("SELECT ts.`partcode` AS Partcode, SUM(`qty`) AS TOTAL 
-                                                  FROM `tblscan` ts
+            Dim cmdrefreshgrid2 As New MySqlCommand("SELECT ts.`partcode` AS Partcode,fm.partname, SUM(`qty`) AS TOTAL ,COUNT(ts.id) AS COUNT
+                                                  FROM `inventory_fg_scan` ts
                                                     LEFT JOIN scanoperator_is so ON ts.userin = so.IDno
+                                                    LEFT JOIN inventory_fg_masterlist fm ON fm.partcode= ts.partcode
                                                     WHERE       `datein`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "' 
                                                             and `located`='" & PClocation & "' 
                                                             and `Fullname`='" & cmbuser.Text & "'  
@@ -79,7 +71,7 @@ Public Class results_IN
             Dim dt2 As New DataTable
             da2.Fill(dt2)
             datagrid1.DataSource = dt2
-            datagrid1.AutoResizeColumns()
+
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         Finally
@@ -91,7 +83,7 @@ Public Class results_IN
         Try
             con.Close()
             con.Open()
-            Dim cmdselect As New MySqlCommand("Select distinct `fullname` FROM `tblscan`
+            Dim cmdselect As New MySqlCommand("Select distinct `fullname` FROM `inventory_fg_scan`
                                                 INNER JOIN `scanoperator_is` ON `userin` = `IDno`
                                                 WHERE located='" & PClocation & "' and `datein`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "'", con)
             dr = cmdselect.ExecuteReader
@@ -108,7 +100,7 @@ Public Class results_IN
         Try
             con.Close()
             con.Open()
-            Dim cmdselect As New MySqlCommand("Select distinct ts.`batch` FROM `tblscan` ts
+            Dim cmdselect As New MySqlCommand("Select distinct ts.`batch` FROM `inventory_fg_scan` ts
                                               Left Join scanoperator_is tsoout ON ts.userin = tsoout.IDno
                                                
                                                 WHERE `located`='" & PClocation & "' and `datein`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "' and `fullname`='" & cmbuser.Text & "'", con)

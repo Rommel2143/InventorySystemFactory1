@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Scan_In
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class u56_scan_OUT
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()>
+    <System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,9 +20,9 @@ Partial Class Scan_In
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()>
+    <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Scan_In))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(u56_scan_OUT))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -32,6 +32,8 @@ Partial Class Scan_In
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtboxno = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -41,37 +43,33 @@ Partial Class Scan_In
         Me.Guna2GroupBox1 = New Guna.UI2.WinForms.Guna2GroupBox()
         Me.datagrid2 = New System.Windows.Forms.DataGridView()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.batchcode = New Guna.UI2.WinForms.Guna2TextBox()
         Me.txtqr = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
-        Me.Guna2Panel3 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
-        Me.Guna2VSeparator1 = New Guna.UI2.WinForms.Guna2VSeparator()
         Me.btndelete = New Guna.UI2.WinForms.Guna2Button()
-        Me.cmbsearch = New Guna.UI2.WinForms.Guna2TextBox()
         Me.datagrid1 = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.Guna2Panel3 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Panel2.SuspendLayout()
         Me.Guna2Panel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.labelerror.SuspendLayout()
         Me.Guna2GroupBox1.SuspendLayout()
         CType(Me.datagrid2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Guna2Panel3.SuspendLayout()
         CType(Me.datagrid1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Guna2Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.White
+        Me.Panel2.Controls.Add(Me.Label1)
+        Me.Panel2.Controls.Add(Me.txtboxno)
         Me.Panel2.Controls.Add(Me.Guna2Panel2)
         Me.Panel2.Controls.Add(Me.labelerror)
         Me.Panel2.Controls.Add(Me.Guna2GroupBox1)
         Me.Panel2.Controls.Add(Me.Label5)
-        Me.Panel2.Controls.Add(Me.Label7)
-        Me.Panel2.Controls.Add(Me.Label4)
         Me.Panel2.Controls.Add(Me.Label3)
         Me.Panel2.Controls.Add(Me.batchcode)
         Me.Panel2.Controls.Add(Me.txtqr)
@@ -79,26 +77,54 @@ Partial Class Scan_In
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1278, 237)
-        Me.Panel2.TabIndex = 0
+        Me.Panel2.Size = New System.Drawing.Size(1334, 237)
+        Me.Panel2.TabIndex = 9
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(428, 104)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(46, 13)
+        Me.Label1.TabIndex = 208
+        Me.Label1.Text = "Box no :"
+        '
+        'txtboxno
+        '
+        Me.txtboxno.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtboxno.DefaultText = ""
+        Me.txtboxno.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtboxno.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtboxno.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtboxno.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtboxno.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtboxno.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtboxno.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtboxno.Location = New System.Drawing.Point(431, 120)
+        Me.txtboxno.Name = "txtboxno"
+        Me.txtboxno.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtboxno.PlaceholderText = "Box no..."
+        Me.txtboxno.SelectedText = ""
+        Me.txtboxno.Size = New System.Drawing.Size(111, 36)
+        Me.txtboxno.TabIndex = 2
         '
         'Guna2Panel2
         '
-        Me.Guna2Panel2.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Guna2Panel2.BackColor = System.Drawing.Color.IndianRed
         Me.Guna2Panel2.Controls.Add(Me.PictureBox1)
         Me.Guna2Panel2.Controls.Add(Me.Label10)
         Me.Guna2Panel2.Controls.Add(Me.txtdate)
         Me.Guna2Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Guna2Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel2.Name = "Guna2Panel2"
-        Me.Guna2Panel2.Size = New System.Drawing.Size(1278, 20)
+        Me.Guna2Panel2.Size = New System.Drawing.Size(1334, 20)
         Me.Guna2Panel2.TabIndex = 205
         '
         'PictureBox1
         '
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Right
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(1130, 0)
+        Me.PictureBox1.Location = New System.Drawing.Point(1186, 0)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(21, 20)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -113,9 +139,9 @@ Partial Class Scan_In
         Me.Label10.ForeColor = System.Drawing.Color.White
         Me.Label10.Location = New System.Drawing.Point(0, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(73, 21)
+        Me.Label10.Size = New System.Drawing.Size(167, 21)
         Me.Label10.TabIndex = 204
-        Me.Label10.Text = "SCAN IN"
+        Me.Label10.Text = "SCAN OUT (UNIT 5-6)"
         '
         'txtdate
         '
@@ -123,7 +149,7 @@ Partial Class Scan_In
         Me.txtdate.Dock = System.Windows.Forms.DockStyle.Right
         Me.txtdate.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtdate.ForeColor = System.Drawing.Color.White
-        Me.txtdate.Location = New System.Drawing.Point(1151, 0)
+        Me.txtdate.Location = New System.Drawing.Point(1207, 0)
         Me.txtdate.Name = "txtdate"
         Me.txtdate.Size = New System.Drawing.Size(127, 20)
         Me.txtdate.TabIndex = 1
@@ -137,7 +163,7 @@ Partial Class Scan_In
         Me.labelerror.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.labelerror.Location = New System.Drawing.Point(0, 208)
         Me.labelerror.Name = "labelerror"
-        Me.labelerror.Size = New System.Drawing.Size(1278, 19)
+        Me.labelerror.Size = New System.Drawing.Size(1334, 19)
         Me.labelerror.TabIndex = 202
         Me.labelerror.Visible = False
         '
@@ -147,7 +173,7 @@ Partial Class Scan_In
         Me.texterror.AutoSize = True
         Me.texterror.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.texterror.ForeColor = System.Drawing.Color.White
-        Me.texterror.Location = New System.Drawing.Point(603, 0)
+        Me.texterror.Location = New System.Drawing.Point(-33, -2)
         Me.texterror.Name = "texterror"
         Me.texterror.Size = New System.Drawing.Size(74, 21)
         Me.texterror.TabIndex = 203
@@ -163,7 +189,7 @@ Partial Class Scan_In
         Me.Guna2GroupBox1.CustomBorderThickness = New System.Windows.Forms.Padding(0, 20, 0, 0)
         Me.Guna2GroupBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Guna2GroupBox1.ForeColor = System.Drawing.Color.White
-        Me.Guna2GroupBox1.Location = New System.Drawing.Point(1037, 33)
+        Me.Guna2GroupBox1.Location = New System.Drawing.Point(1093, 33)
         Me.Guna2GroupBox1.Name = "Guna2GroupBox1"
         Me.Guna2GroupBox1.ShadowDecoration.BorderRadius = 15
         Me.Guna2GroupBox1.ShadowDecoration.Color = System.Drawing.Color.DimGray
@@ -232,41 +258,16 @@ Partial Class Scan_In
         Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(33, 104)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(58, 13)
+        Me.Label5.Size = New System.Drawing.Size(57, 13)
         Me.Label5.TabIndex = 201
         Me.Label5.Text = "QR Code :"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.Color.DodgerBlue
-        Me.Label7.Location = New System.Drawing.Point(239, 76)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(155, 13)
-        Me.Label7.TabIndex = 200
-        Me.Label7.Text = "Click here to continue using."
-        Me.Label7.Visible = False
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.DarkGray
-        Me.Label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Label4.Location = New System.Drawing.Point(239, 63)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(168, 13)
-        Me.Label4.TabIndex = 199
-        Me.Label4.Text = "Batchcode Already Exists Today!"
-        Me.Label4.Visible = False
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(33, 42)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(71, 13)
+        Me.Label3.Size = New System.Drawing.Size(69, 13)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Batch Code :"
         '
@@ -316,24 +317,8 @@ Partial Class Scan_In
         Me.Guna2Separator1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Guna2Separator1.Location = New System.Drawing.Point(0, 227)
         Me.Guna2Separator1.Name = "Guna2Separator1"
-        Me.Guna2Separator1.Size = New System.Drawing.Size(1278, 10)
+        Me.Guna2Separator1.Size = New System.Drawing.Size(1334, 10)
         Me.Guna2Separator1.TabIndex = 206
-        '
-        'Guna2Panel3
-        '
-        Me.Guna2Panel3.BackColor = System.Drawing.Color.White
-        Me.Guna2Panel3.Controls.Add(Me.Guna2Button1)
-        Me.Guna2Panel3.Controls.Add(Me.Guna2VSeparator1)
-        Me.Guna2Panel3.Controls.Add(Me.btndelete)
-        Me.Guna2Panel3.Controls.Add(Me.cmbsearch)
-        Me.Guna2Panel3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2Panel3.FillColor = System.Drawing.Color.White
-        Me.Guna2Panel3.Location = New System.Drawing.Point(0, 237)
-        Me.Guna2Panel3.Name = "Guna2Panel3"
-        Me.Guna2Panel3.ShadowDecoration.Color = System.Drawing.Color.Silver
-        Me.Guna2Panel3.ShadowDecoration.Depth = 20
-        Me.Guna2Panel3.Size = New System.Drawing.Size(1278, 50)
-        Me.Guna2Panel3.TabIndex = 1
         '
         'Guna2Button1
         '
@@ -346,19 +331,11 @@ Partial Class Scan_In
         Me.Guna2Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Guna2Button1.ForeColor = System.Drawing.Color.White
         Me.Guna2Button1.Image = CType(resources.GetObject("Guna2Button1.Image"), System.Drawing.Image)
-        Me.Guna2Button1.Location = New System.Drawing.Point(1082, 7)
+        Me.Guna2Button1.Location = New System.Drawing.Point(1128, 7)
         Me.Guna2Button1.Name = "Guna2Button1"
         Me.Guna2Button1.Size = New System.Drawing.Size(79, 37)
         Me.Guna2Button1.TabIndex = 1
         Me.Guna2Button1.Text = "Results"
-        '
-        'Guna2VSeparator1
-        '
-        Me.Guna2VSeparator1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Guna2VSeparator1.Location = New System.Drawing.Point(1167, 7)
-        Me.Guna2VSeparator1.Name = "Guna2VSeparator1"
-        Me.Guna2VSeparator1.Size = New System.Drawing.Size(9, 37)
-        Me.Guna2VSeparator1.TabIndex = 202
         '
         'btndelete
         '
@@ -367,38 +344,15 @@ Partial Class Scan_In
         Me.btndelete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.btndelete.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btndelete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btndelete.FillColor = System.Drawing.Color.Tomato
+        Me.btndelete.FillColor = System.Drawing.Color.DodgerBlue
         Me.btndelete.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.btndelete.ForeColor = System.Drawing.Color.White
         Me.btndelete.Image = CType(resources.GetObject("btndelete.Image"), System.Drawing.Image)
-        Me.btndelete.Location = New System.Drawing.Point(1182, 7)
+        Me.btndelete.Location = New System.Drawing.Point(1218, 7)
         Me.btndelete.Name = "btndelete"
-        Me.btndelete.Size = New System.Drawing.Size(79, 37)
+        Me.btndelete.Size = New System.Drawing.Size(104, 37)
         Me.btndelete.TabIndex = 2
-        Me.btndelete.Text = "Delete"
-        '
-        'cmbsearch
-        '
-        Me.cmbsearch.AutoRoundedCorners = True
-        Me.cmbsearch.BorderColor = System.Drawing.Color.DodgerBlue
-        Me.cmbsearch.BorderRadius = 15
-        Me.cmbsearch.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.cmbsearch.DefaultText = ""
-        Me.cmbsearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.cmbsearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.cmbsearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.cmbsearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.cmbsearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cmbsearch.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.cmbsearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cmbsearch.IconLeft = CType(resources.GetObject("cmbsearch.IconLeft"), System.Drawing.Image)
-        Me.cmbsearch.Location = New System.Drawing.Point(13, 10)
-        Me.cmbsearch.Name = "cmbsearch"
-        Me.cmbsearch.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.cmbsearch.PlaceholderText = "Enter Batch or QR..."
-        Me.cmbsearch.SelectedText = ""
-        Me.cmbsearch.Size = New System.Drawing.Size(222, 32)
-        Me.cmbsearch.TabIndex = 0
+        Me.btndelete.Text = "Print Report"
         '
         'datagrid1
         '
@@ -446,8 +400,8 @@ Partial Class Scan_In
         Me.datagrid1.RowHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.datagrid1.RowHeadersVisible = False
         Me.datagrid1.RowTemplate.Height = 28
-        Me.datagrid1.Size = New System.Drawing.Size(1278, 391)
-        Me.datagrid1.TabIndex = 2
+        Me.datagrid1.Size = New System.Drawing.Size(1334, 495)
+        Me.datagrid1.TabIndex = 11
         Me.datagrid1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.datagrid1.ThemeStyle.AlternatingRowsStyle.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.datagrid1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.SystemColors.ControlText
@@ -470,18 +424,31 @@ Partial Class Scan_In
         Me.datagrid1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.datagrid1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
-        'Scan_In
+        'Guna2Panel3
+        '
+        Me.Guna2Panel3.BackColor = System.Drawing.Color.White
+        Me.Guna2Panel3.Controls.Add(Me.Guna2Button1)
+        Me.Guna2Panel3.Controls.Add(Me.btndelete)
+        Me.Guna2Panel3.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Guna2Panel3.FillColor = System.Drawing.Color.White
+        Me.Guna2Panel3.Location = New System.Drawing.Point(0, 237)
+        Me.Guna2Panel3.Name = "Guna2Panel3"
+        Me.Guna2Panel3.ShadowDecoration.Color = System.Drawing.Color.Silver
+        Me.Guna2Panel3.ShadowDecoration.Depth = 20
+        Me.Guna2Panel3.Size = New System.Drawing.Size(1334, 50)
+        Me.Guna2Panel3.TabIndex = 10
+        '
+        'u56_scan_OUT
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1278, 678)
+        Me.ClientSize = New System.Drawing.Size(1334, 782)
         Me.Controls.Add(Me.datagrid1)
         Me.Controls.Add(Me.Guna2Panel3)
         Me.Controls.Add(Me.Panel2)
-        Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "Scan_In"
-        Me.Text = "Scan_In"
+        Me.Name = "u56_scan_OUT"
+        Me.Text = "u56_scan_OUT"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
@@ -492,31 +459,30 @@ Partial Class Scan_In
         Me.labelerror.PerformLayout()
         Me.Guna2GroupBox1.ResumeLayout(False)
         CType(Me.datagrid2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Guna2Panel3.ResumeLayout(False)
         CType(Me.datagrid1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Guna2Panel3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
+
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents Guna2GroupBox1 As Guna.UI2.WinForms.Guna2GroupBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents txtboxno As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Label10 As Label
+    Friend WithEvents txtdate As Label
     Friend WithEvents labelerror As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents texterror As Label
+    Friend WithEvents Guna2GroupBox1 As Guna.UI2.WinForms.Guna2GroupBox
+    Friend WithEvents datagrid2 As DataGridView
     Friend WithEvents Label5 As Label
-    Friend WithEvents Label7 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents batchcode As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents txtqr As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents txtdate As Label
-    Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents Label10 As Label
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Guna2Panel3 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents btndelete As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents cmbsearch As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
-    Friend WithEvents Guna2VSeparator1 As Guna.UI2.WinForms.Guna2VSeparator
-    Friend WithEvents datagrid2 As DataGridView
-    Friend WithEvents datagrid1 As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents Label4 As Label
+    Friend WithEvents btndelete As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents datagrid1 As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents Guna2Panel3 As Guna.UI2.WinForms.Guna2Panel
 End Class

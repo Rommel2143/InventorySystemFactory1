@@ -12,7 +12,7 @@
   <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="tblscan" msprop:Generator_TableClassName="tblscanDataTable" msprop:Generator_TableVarName="tabletblscan" msprop:Generator_TablePropName="tblscan" msprop:Generator_RowDeletingName="tblscanRowDeleting" msprop:Generator_RowChangingName="tblscanRowChanging" msprop:Generator_RowEvHandlerName="tblscanRowChangeEventHandler" msprop:Generator_RowDeletedName="tblscanRowDeleted" msprop:Generator_UserTableName="tblscan" msprop:Generator_RowChangedName="tblscanRowChanged" msprop:Generator_RowEvArgName="tblscanRowChangeEvent" msprop:Generator_RowClassName="tblscanRow">
+        <xs:element name="inventory_fg_scan" msprop:Generator_TableClassName="inventory_fg_scanDataTable" msprop:Generator_TableVarName="tableinventory_fg_scan" msprop:Generator_RowChangedName="inventory_fg_scanRowChanged" msprop:Generator_TablePropName="inventory_fg_scan" msprop:Generator_RowDeletingName="inventory_fg_scanRowDeleting" msprop:Generator_RowChangingName="inventory_fg_scanRowChanging" msprop:Generator_RowEvHandlerName="inventory_fg_scanRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_fg_scanRowDeleted" msprop:Generator_RowClassName="inventory_fg_scanRow" msprop:Generator_UserTableName="inventory_fg_scan" msprop:Generator_RowEvArgName="inventory_fg_scanRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:string" />
@@ -23,7 +23,7 @@
               <xs:element name="remarks" msprop:Generator_ColumnVarNameInTable="columnremarks" msprop:Generator_ColumnPropNameInRow="remarks" msprop:Generator_ColumnPropNameInTable="remarksColumn" msprop:Generator_UserColumnName="remarks" type="xs:string" minOccurs="0" />
               <xs:element name="qty" msprop:Generator_ColumnVarNameInTable="columnqty" msprop:Generator_ColumnPropNameInRow="qty" msprop:Generator_ColumnPropNameInTable="qtyColumn" msprop:Generator_UserColumnName="qty" type="xs:int" minOccurs="0" />
               <xs:element name="batchout" msprop:Generator_ColumnVarNameInTable="columnbatchout" msprop:Generator_ColumnPropNameInRow="batchout" msprop:Generator_ColumnPropNameInTable="batchoutColumn" msprop:Generator_UserColumnName="batchout" type="xs:string" minOccurs="0" />
-              <xs:element name="dateout" msprop:Generator_ColumnVarNameInTable="columndateout" msprop:Generator_ColumnPropNameInRow="dateout" msprop:Generator_ColumnPropNameInTable="dateoutColumn" msprop:Generator_UserColumnName="dateout" type="xs:string" minOccurs="0" />
+              <xs:element name="dateout" msprop:Generator_ColumnVarNameInTable="columndateout" msprop:Generator_ColumnPropNameInRow="dateout" msprop:Generator_ColumnPropNameInTable="dateoutColumn" msprop:Generator_UserColumnName="dateout" type="xs:dateTime" minOccurs="0" />
               <xs:element name="userout" msprop:Generator_ColumnVarNameInTable="columnuserout" msprop:Generator_ColumnPropNameInRow="userout" msprop:Generator_ColumnPropNameInTable="useroutColumn" msprop:Generator_UserColumnName="userout" type="xs:string" minOccurs="0" />
               <xs:element name="located" msprop:Generator_ColumnVarNameInTable="columnlocated" msprop:Generator_ColumnPropNameInRow="located" msprop:Generator_ColumnPropNameInTable="locatedColumn" msprop:Generator_UserColumnName="located" type="xs:string" minOccurs="0" />
               <xs:element name="boxno" msprop:Generator_ColumnVarNameInTable="columnboxno" msprop:Generator_ColumnPropNameInRow="boxno" msprop:Generator_ColumnPropNameInTable="boxnoColumn" msprop:Generator_UserColumnName="boxno" type="xs:string" minOccurs="0" />
@@ -35,7 +35,7 @@
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:tblscan" />
+      <xs:selector xpath=".//mstns:inventory_fg_scan" />
       <xs:field xpath="mstns:id" />
     </xs:unique>
   </xs:element>

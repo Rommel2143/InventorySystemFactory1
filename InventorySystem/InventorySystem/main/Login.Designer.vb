@@ -24,6 +24,7 @@ Partial Class Login
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Login))
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.lblversion = New System.Windows.Forms.Label()
         Me.labelerror = New System.Windows.Forms.Label()
         Me.txtpclocation = New System.Windows.Forms.Label()
         Me.txtpcmac = New System.Windows.Forms.Label()
@@ -31,7 +32,6 @@ Partial Class Login
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtbarcode = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.lblversion = New System.Windows.Forms.Label()
         Me.Guna2Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -56,6 +56,15 @@ Partial Class Login
         Me.Guna2Panel1.ShadowDecoration.Enabled = True
         Me.Guna2Panel1.Size = New System.Drawing.Size(810, 484)
         Me.Guna2Panel1.TabIndex = 0
+        '
+        'lblversion
+        '
+        Me.lblversion.AutoSize = True
+        Me.lblversion.Location = New System.Drawing.Point(762, 463)
+        Me.lblversion.Name = "lblversion"
+        Me.lblversion.Size = New System.Drawing.Size(16, 13)
+        Me.lblversion.TabIndex = 24
+        Me.lblversion.Text = "---"
         '
         'labelerror
         '
@@ -142,15 +151,6 @@ Partial Class Login
         Me.txtbarcode.Size = New System.Drawing.Size(270, 42)
         Me.txtbarcode.TabIndex = 0
         Me.txtbarcode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'lblversion
-        '
-        Me.lblversion.AutoSize = True
-        Me.lblversion.Location = New System.Drawing.Point(762, 463)
-        Me.lblversion.Name = "lblversion"
-        Me.lblversion.Size = New System.Drawing.Size(16, 13)
-        Me.lblversion.TabIndex = 24
-        Me.lblversion.Text = "---"
         '
         'Login
         '

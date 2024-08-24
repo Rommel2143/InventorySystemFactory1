@@ -99,7 +99,7 @@ Partial Class QR_checker
         Me.labelerror.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.labelerror.Location = New System.Drawing.Point(0, 294)
         Me.labelerror.Name = "labelerror"
-        Me.labelerror.Size = New System.Drawing.Size(856, 19)
+        Me.labelerror.Size = New System.Drawing.Size(1048, 19)
         Me.labelerror.TabIndex = 202
         Me.labelerror.Visible = False
         '
@@ -109,7 +109,7 @@ Partial Class QR_checker
         Me.texterror.AutoSize = True
         Me.texterror.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.texterror.ForeColor = System.Drawing.Color.White
-        Me.texterror.Location = New System.Drawing.Point(391, 0)
+        Me.texterror.Location = New System.Drawing.Point(487, 0)
         Me.texterror.Name = "texterror"
         Me.texterror.Size = New System.Drawing.Size(74, 21)
         Me.texterror.TabIndex = 203
@@ -145,12 +145,12 @@ Partial Class QR_checker
         Me.Guna2Panel1.Controls.Add(Me.txtqr)
         Me.Guna2Panel1.Controls.Add(Me.labelerror)
         Me.Guna2Panel1.FillColor = System.Drawing.Color.White
-        Me.Guna2Panel1.Location = New System.Drawing.Point(196, 201)
+        Me.Guna2Panel1.Location = New System.Drawing.Point(100, 201)
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.ShadowDecoration.BorderRadius = 20
         Me.Guna2Panel1.ShadowDecoration.Color = System.Drawing.Color.Silver
         Me.Guna2Panel1.ShadowDecoration.Enabled = True
-        Me.Guna2Panel1.Size = New System.Drawing.Size(856, 313)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(1048, 313)
         Me.Guna2Panel1.TabIndex = 208
         Me.Guna2Panel1.TabStop = True
         '
@@ -185,7 +185,7 @@ Partial Class QR_checker
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.datagrid1.DefaultCellStyle = DataGridViewCellStyle3
         Me.datagrid1.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.datagrid1.Location = New System.Drawing.Point(24, 107)
+        Me.datagrid1.Location = New System.Drawing.Point(32, 98)
         Me.datagrid1.MultiSelect = False
         Me.datagrid1.Name = "datagrid1"
         Me.datagrid1.ReadOnly = True
@@ -201,7 +201,7 @@ Partial Class QR_checker
         Me.datagrid1.RowHeadersVisible = False
         Me.datagrid1.RowTemplate.Height = 34
         Me.datagrid1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal
-        Me.datagrid1.Size = New System.Drawing.Size(808, 97)
+        Me.datagrid1.Size = New System.Drawing.Size(990, 97)
         Me.datagrid1.TabIndex = 204
         Me.datagrid1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.datagrid1.ThemeStyle.AlternatingRowsStyle.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))

@@ -59,9 +59,14 @@ Public Class Login
                 If dr.Read = True Then
                     fname = dr("fullname").ToString
                     idno = dr("IDno").ToString
+                    Select Case PClocation
+                        Case "U1-4"
+                            display_form(u1_4_subframe)
+                        Case "U5-6"
+                            display_form(u56_subframe)
+                    End Select
 
-                    display_form(sub_FRAME)
-                        sub_FRAME.userstrip.Text = fname
+
                     labelerror.Visible = False
                 Else
                     noid()
@@ -88,4 +93,7 @@ Public Class Login
 
     End Sub
 
+    Private Sub Guna2Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Guna2Panel1.Paint
+
+    End Sub
 End Class

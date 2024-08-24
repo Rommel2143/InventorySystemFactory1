@@ -48,7 +48,7 @@ Public Class Scan_return
                 'CON 2: DUPLICATION
                 con.Close()
                 con.Open()
-                Dim cmdselect As New MySqlCommand("SELECT `qrcode`,`status`,`located`,`dateout` FROM `tblscan` WHERE `qrcode`='" & qrcode & "'", con)
+                Dim cmdselect As New MySqlCommand("SELECT `qrcode`,`status`,`located`,`dateout` FROM `inventory_fg_scan` WHERE `qrcode`='" & qrcode & "'", con)
                 dr = cmdselect.ExecuteReader
                 If dr.Read = True Then
                     status = dr.GetString("status")
@@ -59,7 +59,7 @@ Public Class Scan_return
                         Case "OUT"
                             'update out and deduct
                             return_to_stock()
-                            update_tblscan()
+                            update_inventory_fg_scan()
                             return_ok()
                                 con.Close()
 
@@ -101,13 +101,13 @@ Public Class Scan_return
                 Case "U1-4"
                     con.Close()
                     con.Open()
-                    Dim cmdupdate As New MySqlCommand("UPDATE `tblmaster` SET `stockF1`= (`stockF1`+" & qty & ") WHERE `partcode`='" & partcode & "'", con)
+                    Dim cmdupdate As New MySqlCommand("UPDATE `inventory_fg_masterlist` SET `stockF1`= (`stockF1`+" & qty & ") WHERE `partcode`='" & partcode & "'", con)
                     dr = cmdupdate.ExecuteReader
 
                 Case "U5-6"
                     con.Close()
                     con.Open()
-                    Dim cmdupdate As New MySqlCommand("UPDATE `tblmaster` SET `stockU6`= (`stockU6`+" & qty & ") WHERE `partcode`='" & partcode & "'", con)
+                    Dim cmdupdate As New MySqlCommand("UPDATE `inventory_fg_masterlist` SET `stockU6`= (`stockU6`+" & qty & ") WHERE `partcode`='" & partcode & "'", con)
                     dr = cmdupdate.ExecuteReader
 
             End Select
@@ -120,16 +120,12 @@ Public Class Scan_return
     End Sub
 
 
-    Private Sub Guna2Button2_Click(sender As Object, e As EventArgs)
-        results_IN.Show()
-        results_IN.BringToFront()
-    End Sub
 
-    Private Sub update_tblscan()
+    Private Sub update_inventory_fg_scan()
         Try
             con.Close()
             con.Open()
-            Dim cmdupdate As New MySqlCommand("UPDATE `tblscan` SET `status`='IN',
+            Dim cmdupdate As New MySqlCommand("UPDATE `inventory_fg_scan` SET `status`='IN',
                                                                     `batchout`='',
                                                                     `userout`='',
                                                                     `dateout`= Null,
@@ -179,15 +175,6 @@ Public Class Scan_return
         End Try
     End Sub
 
-    Private Sub btndelete_Click(sender As Object, e As EventArgs)
-        print_report.Show()
-        print_report.BringToFront()
-    End Sub
-
-    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs)
-        results_OUT.Show()
-        results_OUT.BringToFront()
-    End Sub
 
     Private Sub txtqr_TextChanged(sender As Object, e As EventArgs) Handles txtqr.TextChanged
 
