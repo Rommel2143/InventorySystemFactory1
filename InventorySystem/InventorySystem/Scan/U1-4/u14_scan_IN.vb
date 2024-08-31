@@ -74,7 +74,17 @@ Public Class u14_scan_IN
                                 showerror("Location Invalid")
                             End If
                         Case "OUT"
-                            showerror("Status : OUT")
+                            If located = "U1-4" Then
+                                showerror("Status : OUT")
+                            ElseIf located = "U5-6" Then
+                                ' update
+                                update_to_inventory_fg_scan()
+                                labelerror.Visible = False
+                            Else
+                                'no location found
+                                showerror("Location Invalid")
+                            End If
+
                     End Select
 
                 Else 'CON 2 : IF NOT SCANNED
@@ -90,7 +100,7 @@ Public Class u14_scan_IN
                         refreshgrid()
                         refreshgrid2()
                         return_ok()
-
+                        labelerror.Visible = False
                     Else  'CON 3 : PARTCODE
                         showerror("No Partcode Exists!")
                     End If
@@ -99,12 +109,16 @@ Public Class u14_scan_IN
             Else  'CON 1 : QR SPLITING
                 showerror("INVALID QR FORMAT!")
                 con.Close()
-                txtqr.Text = ""
-                txtqr.Focus()
+
             End If
 
         Catch ex As Exception
             MessageBox.Show(ex.Message)
+        Finally
+            txtqr.Text = ""
+            txtqr.Focus()
+            refreshgrid()
+            refreshgrid2()
         End Try
 
     End Sub
@@ -145,7 +159,8 @@ Public Class u14_scan_IN
                                                                     `lotnumber`,
                                                                     `remarks`,
                                                                     `qty`,
-                                                                    `located`) 
+                                                                    `located`,
+                                                                     `pcin`) 
 
                                                        VALUES('IN',
                                                               '" & batch & "',
@@ -156,7 +171,8 @@ Public Class u14_scan_IN
                                                               '" & lotnumber & "',
                                                               '" & remarks & "',
                                                               '" & qty & "',
-                                                              'U1-4')", con)
+                                                              'U1-4',
+                                                              '" & PCname & "')", con)
             cmdinsert.ExecuteNonQuery()
 
         Catch ex As Exception
@@ -174,7 +190,21 @@ Public Class u14_scan_IN
     Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
 
     End Sub
+    Private Sub update_to_inventory_fg_scan()
+        Try
 
+            con.Close()
+            con.Open()
+            Dim cmdupdate As New MySqlCommand("UPDATE `inventory_fg_scan` SET located= 'U1-4', status='IN', batch='" & batch & "', userin='" & idno & "', datein='" & datedb & "'", con)
+            cmdupdate.ExecuteNonQuery()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        Finally
+            con.Close()
+        End Try
+
+    End Sub
     Private Sub txtqr_TextChanged(sender As Object, e As EventArgs) Handles txtqr.TextChanged
 
     End Sub
@@ -289,36 +319,7 @@ Public Class u14_scan_IN
 
 
 
-    Private Sub cmbsearch_TextChanged(sender As Object, e As EventArgs) Handles cmbsearch.TextChanged
-        Try
-            con.Close()
-            con.Open()
-            Dim cmdrefreshgrid As New MySqlCommand("SELECT `id`,`batch`,`qrcode`,`partcode`,  `lotnumber`, `remarks`, `qty` FROM `inventory_fg_scan`
-                                                     WHERE `datein`='" & datedb & "' and `located`='U1-4' and `userin`='" & idno & "' and `status`='IN' and (`qrcode` REGEXP '" & cmbsearch.Text & "' or `batch` REGEXP '" & cmbsearch.Text & "')", con)
 
-            Dim da As New MySqlDataAdapter(cmdrefreshgrid)
-            Dim dt As New DataTable
-            da.Fill(dt)
-            datagrid1.DataSource = dt
-            datagrid1.AutoResizeColumns()
-
-            con.Close()
-            con.Open()
-            Dim cmdrefreshgrid2 As New MySqlCommand("SELECT `partcode`, SUM(`qty`) FROM `inventory_fg_scan`
-                                                  WHERE `datein`='" & datedb & "' and `located`='" & PClocation & "' and `userin`='" & idno & "' and `status`='IN' and (`qrcode` REGEXP '" & cmbsearch.Text & "' or `batch` REGEXP '" & cmbsearch.Text & "')               
-                                                  GROUP BY partcode", con)
-
-            Dim da2 As New MySqlDataAdapter(cmdrefreshgrid2)
-            Dim dt2 As New DataTable
-            da2.Fill(dt2)
-            datagrid2.DataSource = dt2
-            datagrid2.AutoResizeColumns()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        Finally
-            con.Close()
-        End Try
-    End Sub
 
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
         scan_IN_results.Show()
@@ -327,6 +328,10 @@ Public Class u14_scan_IN
     End Sub
 
     Private Sub datagrid1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles datagrid1.CellContentClick
+
+    End Sub
+
+    Private Sub Guna2Panel3_Paint(sender As Object, e As PaintEventArgs) Handles Guna2Panel3.Paint
 
     End Sub
 End Class

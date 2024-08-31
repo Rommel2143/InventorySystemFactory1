@@ -63,12 +63,13 @@ Public Class u14_scan_OUT
                             If located = "U1-4" Then
                                 'update out and deduct
                                 update_inventory_fg_scan()
-                                refreshgrid()
-                                refreshgrid2()
+                                labelerror.Visible = False
 
                                 con.Close()
                             ElseIf located = "U5-6" Then
-                                showerror("Scanned OUT not performed on UNIT 5-6")
+                                ' showerror("Scanned OUT not performed on UNIT 5-6")
+                                update_inventory_fg_scan()
+                                labelerror.Visible = False
                             Else
                                 showerror("Invalid Location")
                             End If
@@ -105,8 +106,12 @@ Public Class u14_scan_OUT
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         Finally
+            refreshgrid()
+            refreshgrid2()
             txtqr.Text = ""
             txtqr.Focus()
+
+
         End Try
 
     End Sub
@@ -134,11 +139,12 @@ Public Class u14_scan_OUT
     End Sub
 
 
+
     Private Sub update_inventory_fg_scan()
         Try
             con.Close()
             con.Open()
-            Dim cmdupdate As New MySqlCommand("UPDATE `inventory_fg_scan` SET `status`='OUT',`batchout`='" & batch & "',`dateout`='" & datedb & "',`userout`='" & idno & "',`boxno`='" & txtboxno.Text & "' WHERE `qrcode`='" & qrcode & "'", con)
+            Dim cmdupdate As New MySqlCommand("UPDATE `inventory_fg_scan` SET pcout='" & PCname & "', located='U1-4',`status`='OUT',`batchout`='" & batch & "',`dateout`='" & datedb & "',`userout`='" & idno & "',`boxno`='" & txtboxno.Text & "' WHERE `qrcode`='" & txtqr.Text & "'", con)
             cmdupdate.ExecuteNonQuery()
 
 
@@ -241,6 +247,10 @@ Public Class u14_scan_OUT
     End Sub
 
     Private Sub txtqr_TextChanged(sender As Object, e As EventArgs) Handles txtqr.TextChanged
+
+    End Sub
+
+    Private Sub txtboxno_TextChanged(sender As Object, e As EventArgs) Handles txtboxno.TextChanged
 
     End Sub
 End Class

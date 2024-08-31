@@ -38,6 +38,7 @@ Partial Class u56_subframe
         Me.QRCheckerToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.StockMonitoringToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ManageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UpdateSystemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -92,7 +93,7 @@ Partial Class u56_subframe
         'userstrip
         '
         Me.userstrip.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.userstrip.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LogoutToolStripMenuItem, Me.ExitToolStripMenuItem, Me.SuggestToImproveToolStripMenuItem, Me.DeviceInfoToolStripMenuItem})
+        Me.userstrip.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LogoutToolStripMenuItem, Me.ExitToolStripMenuItem, Me.SuggestToImproveToolStripMenuItem, Me.DeviceInfoToolStripMenuItem, Me.UpdateSystemToolStripMenuItem})
         Me.userstrip.Image = CType(resources.GetObject("userstrip.Image"), System.Drawing.Image)
         Me.userstrip.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.userstrip.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -166,6 +167,13 @@ Partial Class u56_subframe
         Me.ManageToolStripMenuItem.Size = New System.Drawing.Size(99, 37)
         Me.ManageToolStripMenuItem.Text = "Manage"
         '
+        'UpdateSystemToolStripMenuItem
+        '
+        Me.UpdateSystemToolStripMenuItem.Image = CType(resources.GetObject("UpdateSystemToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.UpdateSystemToolStripMenuItem.Name = "UpdateSystemToolStripMenuItem"
+        Me.UpdateSystemToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
+        Me.UpdateSystemToolStripMenuItem.Text = "Update System"
+        '
         'u56_subframe
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -198,4 +206,5 @@ Partial Class u56_subframe
     Friend WithEvents QRCheckerToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents StockMonitoringToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ManageToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents UpdateSystemToolStripMenuItem As ToolStripMenuItem
 End Class

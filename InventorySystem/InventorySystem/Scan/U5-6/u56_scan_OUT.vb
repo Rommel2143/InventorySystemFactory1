@@ -64,12 +64,13 @@ Public Class u56_scan_OUT
                             If located = "U5-6" Then
                                 'update out and deduct
                                 update_inventory_fg_scan()
-                                refreshgrid()
-                                refreshgrid2()
+                                labelerror.Visible = False
 
                                 con.Close()
                             ElseIf located = "U1-4" Then
-                                showerror("Scanned OUT not performed on UNIT 5-6")
+                                'showerror("Scanned OUT not performed on UNIT 5-6")
+                                update_inventory_fg_scan()
+                                labelerror.Visible = False
                             Else
                                 showerror("Invalid Location")
                             End If
@@ -106,6 +107,8 @@ Public Class u56_scan_OUT
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         Finally
+            refreshgrid()
+            refreshgrid2()
             txtqr.Text = ""
             txtqr.Focus()
         End Try
@@ -139,7 +142,7 @@ Public Class u56_scan_OUT
         Try
             con.Close()
             con.Open()
-            Dim cmdupdate As New MySqlCommand("UPDATE `inventory_fg_scan` SET `status`='OUT',`batchout`='" & batch & "',`dateout`='" & datedb & "',`userout`='" & idno & "',`boxno`='" & txtboxno.Text & "' WHERE `qrcode`='" & qrcode & "'", con)
+            Dim cmdupdate As New MySqlCommand("UPDATE `inventory_fg_scan` SET pcout='" & PCname & "', located='U5-6',`status`='OUT',`batchout`='" & batch & "',`dateout`='" & datedb & "',`userout`='" & idno & "',`boxno`='" & txtboxno.Text & "' WHERE `qrcode`='" & txtqr.Text & "'", con)
             cmdupdate.ExecuteNonQuery()
 
 

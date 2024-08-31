@@ -74,4 +74,18 @@ Public Class u1_4_subframe
     Private Sub ManageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ManageToolStripMenuItem.Click
         display_formscan(Add_item)
     End Sub
+
+    Private Sub UpdateSystemToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UpdateSystemToolStripMenuItem.Click
+        Try
+            Dim setupPath As String = "\\ptif1-ds\shared\IT\system\inventorysystem\setup.exe"
+            If System.IO.File.Exists(setupPath) Then
+                Process.Start(setupPath)
+                Application.Exit()
+            Else
+                MessageBox.Show("Update file not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        Catch ex As Exception
+            MessageBox.Show("An error occurred while trying to update: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
 End Class

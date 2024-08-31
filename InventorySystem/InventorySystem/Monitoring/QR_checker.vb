@@ -25,8 +25,10 @@ Public Class QR_checker
         Try
             con.Close()
             con.Open()
-            Dim cmdrefreshgrid As New MySqlCommand("SELECT * from `inventory_fg_scan`
-                                                    WHERE `qrcode`='" & txtqr.Text & "'", con)
+            Dim cmdrefreshgrid As New MySqlCommand("SELECT fs.id, fs.status, fs.batch, fs.userin, fs.datein, fs.partcode, fs.qrcode, fs.lotnumber, fs.remarks, fs.qty, fs.batchout, fs.dateout, fs.userout, fs.located, fs.boxno FROM inventory_fg_scan fs
+                                                   
+                                                  
+                                                        WHERE fs.qrcode='" & txtqr.Text & "'", con)
 
             Dim da As New MySqlDataAdapter(cmdrefreshgrid)
             Dim dt As New DataTable

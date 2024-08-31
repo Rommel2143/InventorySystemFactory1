@@ -3,8 +3,8 @@ Imports System.Net.NetworkInformation
 Module Module1
 
     Public Function connection() As MySqlConnection
-        ' Return New MySqlConnection("server=PTI-027s;user id=Inventory;password=inventory123@;database=trcsystem")
-        Return New MySqlConnection("server=localhost;user id=Inventorysystem;password=admin@2024;database=trcsystem")
+        Return New MySqlConnection("server=PTI-027s;user id=Inventory;password=inventory123@;database=trcsystem")
+        ' Return New MySqlConnection("server=localhost;user id=Inventorysystem;password=admin@2024;database=trcsystem")
     End Function
     Public con As MySqlConnection = connection()
     Public result As String
