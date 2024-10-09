@@ -128,6 +128,7 @@ Partial Class QR_checker
         Me.txtqr.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtqr.IconLeft = CType(resources.GetObject("txtqr.IconLeft"), System.Drawing.Image)
         Me.txtqr.Location = New System.Drawing.Point(32, 56)
+        Me.txtqr.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtqr.Name = "txtqr"
         Me.txtqr.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtqr.PlaceholderText = "Scan QR..."
@@ -199,6 +200,7 @@ Partial Class QR_checker
         DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.datagrid1.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.datagrid1.RowHeadersVisible = False
+        Me.datagrid1.RowHeadersWidth = 62
         Me.datagrid1.RowTemplate.Height = 34
         Me.datagrid1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal
         Me.datagrid1.Size = New System.Drawing.Size(990, 97)
