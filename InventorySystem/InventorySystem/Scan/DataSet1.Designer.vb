@@ -311,6 +311,10 @@ Partial Public Class DataSet1
         
         Private columnpartname As Global.System.Data.DataColumn
         
+        Private columnsection As Global.System.Data.DataColumn
+        
+        Private columnsection_title As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -459,6 +463,22 @@ Partial Public Class DataSet1
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property sectionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property section_titleColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsection_title
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -495,9 +515,25 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function Addinventory_fg_scanRow(ByVal id As String, ByVal status As String, ByVal batch As String, ByVal partcode As String, ByVal lotnumber As String, ByVal remarks As String, ByVal qty As Integer, ByVal batchout As String, ByVal dateout As Date, ByVal userout As String, ByVal located As String, ByVal boxno As String, ByVal fullname As String, ByVal partname As String) As inventory_fg_scanRow
+        Public Overloads Function Addinventory_fg_scanRow( _
+                    ByVal id As String,  _
+                    ByVal status As String,  _
+                    ByVal batch As String,  _
+                    ByVal partcode As String,  _
+                    ByVal lotnumber As String,  _
+                    ByVal remarks As String,  _
+                    ByVal qty As Integer,  _
+                    ByVal batchout As String,  _
+                    ByVal dateout As Date,  _
+                    ByVal userout As String,  _
+                    ByVal located As String,  _
+                    ByVal boxno As String,  _
+                    ByVal fullname As String,  _
+                    ByVal partname As String,  _
+                    ByVal section As String,  _
+                    ByVal section_title As String) As inventory_fg_scanRow
             Dim rowinventory_fg_scanRow As inventory_fg_scanRow = CType(Me.NewRow,inventory_fg_scanRow)
-            Dim columnValuesArray() As Object = New Object() {id, status, batch, partcode, lotnumber, remarks, qty, batchout, dateout, userout, located, boxno, fullname, partname}
+            Dim columnValuesArray() As Object = New Object() {id, status, batch, partcode, lotnumber, remarks, qty, batchout, dateout, userout, located, boxno, fullname, partname, section, section_title}
             rowinventory_fg_scanRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowinventory_fg_scanRow)
             Return rowinventory_fg_scanRow
@@ -540,6 +576,8 @@ Partial Public Class DataSet1
             Me.columnboxno = MyBase.Columns("boxno")
             Me.columnfullname = MyBase.Columns("fullname")
             Me.columnpartname = MyBase.Columns("partname")
+            Me.columnsection = MyBase.Columns("section")
+            Me.columnsection_title = MyBase.Columns("section_title")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -573,6 +611,10 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnfullname)
             Me.columnpartname = New Global.System.Data.DataColumn("partname", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnpartname)
+            Me.columnsection = New Global.System.Data.DataColumn("section", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsection)
+            Me.columnsection_title = New Global.System.Data.DataColumn("section_title", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsection_title)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid}, true))
             Me.columnid.AllowDBNull = false
             Me.columnid.Unique = true
@@ -928,6 +970,36 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property section() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableinventory_fg_scan.sectionColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'section' in table 'inventory_fg_scan' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableinventory_fg_scan.sectionColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property section_title() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableinventory_fg_scan.section_titleColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'section_title' in table 'inventory_fg_scan' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableinventory_fg_scan.section_titleColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsstatusNull() As Boolean
             Return Me.IsNull(Me.tableinventory_fg_scan.statusColumn)
         End Function
@@ -1080,6 +1152,30 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetpartnameNull()
             Me(Me.tableinventory_fg_scan.partnameColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IssectionNull() As Boolean
+            Return Me.IsNull(Me.tableinventory_fg_scan.sectionColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetsectionNull()
+            Me(Me.tableinventory_fg_scan.sectionColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Issection_titleNull() As Boolean
+            Return Me.IsNull(Me.tableinventory_fg_scan.section_titleColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Setsection_titleNull()
+            Me(Me.tableinventory_fg_scan.section_titleColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

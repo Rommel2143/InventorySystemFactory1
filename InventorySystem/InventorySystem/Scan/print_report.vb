@@ -24,7 +24,18 @@ ts.userout,
     ts.located,
     ts.boxno,
     tsoout.Fullname,
-    tm.partname AS PartName
+    tm.partname AS PartName,
+CASE 
+            WHEN tm.section = 'MOLDING' THEN 'IM-FRM-006 (03/10/14-Rev.3)'
+            WHEN tm.section = 'PAINTING' THEN 'PT-FRM-023 (11/04/13-Rev.2)'
+            WHEN tm.section = 'MOTOR ASSY' THEN 'PG-FRM-005 (10/01/05-Rev.1)'
+            WHEN tm.section = 'ASSEMBLY' THEN 'PG-FRM-005 (10/01/05-Rev.1)'
+            WHEN tm.section = 'TUBE PUMP' THEN 'ET-FRM-008 (09/21/17-Rev.0)'
+            WHEN tm.section = 'RUBBER' THEN 'RS-FRM-004 (06/01/17-Rev.0)'
+            WHEN tm.section = 'SHAFT' THEN 'SH-FRM-011 (10/03/05-Rev.1)'
+            ELSE tm.section = 'NO AVAILABLE CONTROL CODE'
+        END AS Section,
+CONCAT(UPPER(tm.section), ' SECTION') AS section_title
 FROM
         inventory_fg_scan ts
     Left Join scanoperator_is tsoout ON ts.userout = tsoout.IDno

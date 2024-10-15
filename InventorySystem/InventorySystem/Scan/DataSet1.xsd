@@ -29,6 +29,8 @@
               <xs:element name="boxno" msprop:Generator_ColumnVarNameInTable="columnboxno" msprop:Generator_ColumnPropNameInRow="boxno" msprop:Generator_ColumnPropNameInTable="boxnoColumn" msprop:Generator_UserColumnName="boxno" type="xs:string" minOccurs="0" />
               <xs:element name="fullname" msprop:Generator_ColumnVarNameInTable="columnfullname" msprop:Generator_ColumnPropNameInRow="fullname" msprop:Generator_ColumnPropNameInTable="fullnameColumn" msprop:Generator_UserColumnName="fullname" type="xs:string" minOccurs="0" />
               <xs:element name="partname" msprop:Generator_ColumnVarNameInTable="columnpartname" msprop:Generator_ColumnPropNameInRow="partname" msprop:Generator_ColumnPropNameInTable="partnameColumn" msprop:Generator_UserColumnName="partname" type="xs:string" minOccurs="0" />
+              <xs:element name="section" msprop:Generator_ColumnVarNameInTable="columnsection" msprop:Generator_ColumnPropNameInRow="section" msprop:Generator_ColumnPropNameInTable="sectionColumn" msprop:Generator_UserColumnName="section" type="xs:string" minOccurs="0" />
+              <xs:element name="section_title" msprop:Generator_ColumnVarNameInTable="columnsection_title" msprop:Generator_ColumnPropNameInRow="section_title" msprop:Generator_ColumnPropNameInTable="section_titleColumn" msprop:Generator_UserColumnName="section_title" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
