@@ -188,7 +188,7 @@ Public Class u56_scan_IN
 
             con.Close()
             con.Open()
-            Dim cmdupdate As New MySqlCommand("UPDATE `inventory_fg_scan` SET located= 'U5-6', status='IN', batch='" & batch & "', userin='" & idno & "', datein='" & datedb & "'", con)
+            Dim cmdupdate As New MySqlCommand("UPDATE `inventory_fg_scan` SET pcin= '" & PCname & "', located= 'U5-6', status='IN', batch='" & batch & "', userin='" & idno & "', datein='" & datedb & "'", con)
             cmdupdate.ExecuteNonQuery()
 
         Catch ex As Exception

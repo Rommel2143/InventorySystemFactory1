@@ -72,7 +72,7 @@ Public Class u56_subframe
         display_formscan(stock_monitoring)
     End Sub
 
-    Private Sub ManageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ManageToolStripMenuItem.Click
+    Private Sub ManageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles btn_manage.Click
         display_formscan(Add_item)
     End Sub
 

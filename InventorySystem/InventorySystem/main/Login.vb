@@ -59,6 +59,18 @@ Public Class Login
                 If dr.Read = True Then
                     fname = dr("fullname").ToString
                     idno = dr("IDno").ToString
+                    Dim user_level As Integer = dr.GetInt32("status")
+                    Select Case user_level
+                        Case 0
+                            u1_4_subframe.btn_manage.Visible = False
+                            u56_subframe.btn_manage.Visible = False
+
+                        Case 1
+                            u1_4_subframe.btn_manage.Visible = True
+                            u56_subframe.btn_manage.Visible = True
+                    End Select
+
+
                     Select Case PClocation
                         Case "U1-4"
                             display_form(u1_4_subframe)

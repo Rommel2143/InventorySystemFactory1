@@ -34,11 +34,11 @@ Partial Class u56_subframe
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SuggestToImproveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeviceInfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UpdateSystemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QRCheckerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QRCheckerToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.StockMonitoringToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ManageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UpdateSystemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btn_manage = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -54,7 +54,7 @@ Partial Class u56_subframe
         '
         Me.MenuStrip1.AutoSize = False
         Me.MenuStrip1.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MasterlistToolStripMenuItem, Me.userstrip, Me.QRCheckerToolStripMenuItem, Me.ManageToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MasterlistToolStripMenuItem, Me.userstrip, Me.QRCheckerToolStripMenuItem, Me.btn_manage})
         Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -138,6 +138,13 @@ Partial Class u56_subframe
         Me.DeviceInfoToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
         Me.DeviceInfoToolStripMenuItem.Text = "Device info."
         '
+        'UpdateSystemToolStripMenuItem
+        '
+        Me.UpdateSystemToolStripMenuItem.Image = CType(resources.GetObject("UpdateSystemToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.UpdateSystemToolStripMenuItem.Name = "UpdateSystemToolStripMenuItem"
+        Me.UpdateSystemToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
+        Me.UpdateSystemToolStripMenuItem.Text = "Update System"
+        '
         'QRCheckerToolStripMenuItem
         '
         Me.QRCheckerToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QRCheckerToolStripMenuItem1, Me.StockMonitoringToolStripMenuItem})
@@ -160,19 +167,12 @@ Partial Class u56_subframe
         Me.StockMonitoringToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
         Me.StockMonitoringToolStripMenuItem.Text = "Stock Monitoring"
         '
-        'ManageToolStripMenuItem
+        'btn_manage
         '
-        Me.ManageToolStripMenuItem.Image = CType(resources.GetObject("ManageToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.ManageToolStripMenuItem.Name = "ManageToolStripMenuItem"
-        Me.ManageToolStripMenuItem.Size = New System.Drawing.Size(99, 37)
-        Me.ManageToolStripMenuItem.Text = "Manage"
-        '
-        'UpdateSystemToolStripMenuItem
-        '
-        Me.UpdateSystemToolStripMenuItem.Image = CType(resources.GetObject("UpdateSystemToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.UpdateSystemToolStripMenuItem.Name = "UpdateSystemToolStripMenuItem"
-        Me.UpdateSystemToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
-        Me.UpdateSystemToolStripMenuItem.Text = "Update System"
+        Me.btn_manage.Image = CType(resources.GetObject("btn_manage.Image"), System.Drawing.Image)
+        Me.btn_manage.Name = "btn_manage"
+        Me.btn_manage.Size = New System.Drawing.Size(99, 37)
+        Me.btn_manage.Text = "Manage"
         '
         'u56_subframe
         '
@@ -205,6 +205,6 @@ Partial Class u56_subframe
     Friend WithEvents QRCheckerToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents QRCheckerToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents StockMonitoringToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ManageToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents btn_manage As ToolStripMenuItem
     Friend WithEvents UpdateSystemToolStripMenuItem As ToolStripMenuItem
 End Class
