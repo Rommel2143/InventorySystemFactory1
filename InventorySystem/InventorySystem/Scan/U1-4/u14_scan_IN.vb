@@ -78,7 +78,7 @@ Public Class u14_scan_IN
                                 showerror("Status : OUT")
                             ElseIf located = "U5-6" Then
                                 ' update
-                                update_to_inventory_fg_scan()
+                                update_to_inventory_fg_scan(qrcode)
                                 labelerror.Visible = False
                             Else
                                 'no location found
@@ -190,12 +190,12 @@ Public Class u14_scan_IN
     Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
 
     End Sub
-    Private Sub update_to_inventory_fg_scan()
+    Private Sub update_to_inventory_fg_scan(qrcode As String)
         Try
 
             con.Close()
             con.Open()
-            Dim cmdupdate As New MySqlCommand("UPDATE `inventory_fg_scan` SET pcin= '" & PCname & "', located= 'U1-4', status='IN', batch='" & batch & "', userin='" & idno & "', datein='" & datedb & "'", con)
+            Dim cmdupdate As New MySqlCommand("UPDATE `inventory_fg_scan` SET pcin= '" & PCname & "', located= 'U1-4', status='IN', batch='" & batch & "', userin='" & idno & "', datein='" & datedb & "' WHERE qrcode = '" & qrcode & "' ", con)
             cmdupdate.ExecuteNonQuery()
 
         Catch ex As Exception
