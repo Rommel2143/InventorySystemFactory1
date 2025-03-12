@@ -48,7 +48,8 @@ Public Class scan_OUT_results
                                                     WHERE       `dateout`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "' 
                                                             and `located`='" & PClocation & "' 
                                                             and `Fullname`='" & cmbuser.Text & "'  
-                                                            and `batchout`='" & cmbbatchin.Text & "' ", con)
+                                                            and `batchout`='" & cmbbatchin.Text & "' 
+                                                                    ", con)
 
             Dim da As New MySqlDataAdapter(cmdrefreshgrid)
             Dim dt As New DataTable
